@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "../../components/Header";
 import Link from "../../components/Link";
 
@@ -66,10 +67,12 @@ export default async function Profile({ params }: { params: { username: string }
             <div className="max-w-md min-w-[500px] mx-auto bg-gray-900 shadow-md rounded-md p-8">
                 {userData ? (<>
                     <h1 className="text-2xl font-semibold text-gray-100 mb-4">{userData?.name}</h1>
-                    <img
-                        src="https://d1fdloi71mui9q.cloudfront.net/kOyHLAdQcSwyPLOH0KHg_aq7CNej4S7yc073c"
+                    <Image
+                        src={userData?.avatar}
                         alt="Profile"
                         className="rounded-full w-32 h-32 mx-auto mb-4"
+                        width={128}
+                        height={128}
                     />
                     <p className="text-gray-100 mb-4">{userData?.bio}</p>
                     <ul className="flex flex-col max-w-lg mx-auto space-y-4">
